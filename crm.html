@@ -1,0 +1,47 @@
+<head>
+  <title>crm</title>
+</head>
+
+<body>
+  <div id="groups">
+	  Groups
+  </div>
+  <div id="contacts">
+	  {{> contacts}}
+  </div>
+  <div id="contact">
+	  {{> contact}}
+  </div>
+</body>
+
+<template name="contacts">
+	Contacts ({{count}}) <input type="submit" value="add">
+	
+	{{#each contacts}}
+		{{> contact_list_item}}
+	{{/each}}
+</template>
+
+<template name="contact_list_item">
+	<div>{{name}}</div>
+</template>
+
+<template name="contact">
+	{{#if contact}}
+		{{#if editContact}}
+			{{> contact_edit}}
+		{{else}}
+			<button class="edit">Edit</button>
+			<button class="delete">Delete</button>
+			<h2>{{contact.name}}</h2>
+		{{/if}}
+	{{else}}
+		<p>Select a contact.</p>
+	{{/if}}
+</template>
+
+<template name="contact_edit">
+	<button class="cancel">Cancel</button>
+	<div>EDIT {{contact.name}}</div>
+	<div><input class="name" value="{{contact.name}}" /></div>
+</template>
