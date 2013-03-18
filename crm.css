@@ -17,6 +17,7 @@ body{
 	left:100px;
 	overflow-y: auto;
 	border-right:1px solid #ccc;
+	border-left:1px solid #ccc;
 }
 #contact{
 	position:absolute;
@@ -26,3 +27,6 @@ body{
 	left:300px;
 	right:0px;
 }
+
+.contact-item{border-bottom:1px solid #ccc;}
+.contact-item.selected{font-weight:bold;box-shadow:inset 1px 0px 5px 0px;background-color:#eee;}

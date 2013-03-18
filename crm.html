@@ -15,7 +15,7 @@
 </body>
 
 <template name="contacts">
-	Contacts ({{count}}) <input type="submit" value="add">
+	Contacts ({{count}}) <input class="btn" type="submit" value="add">
 	
 	{{#each contacts}}
 		{{> contact_list_item}}
@@ -23,7 +23,12 @@
 </template>
 
 <template name="contact_list_item">
-	<div>{{name}}</div>
+	<div class="media contact-item {{#if selected}}selected{{/if}}" style="margin:0px;padding:5px;">
+		<a class="pull-left" href="#">
+			<img class="media-object" src="http://placehold.it/24x24" style="width: 24px; height: 24px;">
+		</a>
+		<div class="media-body">{{name}}</div>
+	</div>
 </template>
 
 <template name="contact">
@@ -31,8 +36,8 @@
 		{{#if editContact}}
 			{{> contact_edit}}
 		{{else}}
-			<button class="edit">Edit</button>
-			<button class="delete">Delete</button>
+			<button class="edit btn">Edit</button>
+			<button class="delete btn">Delete</button>
 			<h2>{{contact.name}}</h2>
 		{{/if}}
 	{{else}}

@@ -20,6 +20,10 @@ if (Meteor.isClient) {
 			Router.setContact(this._id);
 		}
 	})
+	
+	Template.contact_list_item.selected = function(){
+		return this._id == Session.get('contact_selected_id');
+	}
   
   Template.contact.contact = function(){
 	  return Contacts.findOne(Session.get('contact_selected_id'));
