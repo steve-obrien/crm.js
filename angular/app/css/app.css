@@ -1,0 +1,34 @@
+/* app css stylesheet */
+
+/* CSS declarations go here */
+body{
+	padding:0px;
+	margin:0px;
+}
+#groups{
+	position:absolute;
+	top:40px;
+	bottom:0px;
+	width:100px;
+}
+#contacts{
+	position:absolute;
+	width:200px;
+	top:40px;
+	bottom:0px;
+	left:100px;
+	overflow-y: auto;
+	border-right:1px solid #ccc;
+	border-left:1px solid #ccc;
+}
+#contact{
+	position:absolute;
+	width:auto;
+	top:40px;
+	bottom:0px;
+	left:300px;
+	right:0px;
+}
+
+.contact-item{border-bottom:1px solid #ccc;padding:2px;}
+.contact-item.selected{font-weight:bold;box-shadow:inset 1px 0px 5px 0px;background-color:#eee;}
