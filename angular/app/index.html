@@ -13,6 +13,7 @@
 	</div>
 	<div id="contacts">
 		<a class="btn btn-mini" ng-click="addContact()">Add</a>
+		Total ({{contacts.length}})
 		<div class="contact-item" ng-repeat="contact in contacts | orderBy:orderProp" ng-class="{selected: contact.id==selContact.id}" ng-click="getContact(contact)">
 			<a href="#/contact/{{contact.id}}" style="display:block;">
 				{{contact.first_name}} {{contact.last_name}}
@@ -20,10 +21,12 @@
 		</div>
 	</div>
 	<div id="contact" ng-switch on="editMode">
-		<div ng-switch-when="true">
+		<div ng-switch-when="true" >
 			<a href="" class="btn btn-mini" ng-click="editContactDone()">Done</a>
-			<input ng-model="selContact.first_name" value="{{selContact.first_name}}"/>
-			<input ng-model="selContact.last_name" value="{{selContact.last_name}}"/>
+			<div>
+				<input type="text" ng-model="selContact.first_name" value="{{selContact.first_name}}"/>
+				<input type="text" ng-model="selContact.last_name" value="{{selContact.last_name}}"/>
+			</div>
 		</div>
 		<div ng-switch-default>
 			<a class="btn btn-mini" ng-click="editContact()">Edit</a>
@@ -31,11 +34,10 @@
 		</div>
 	</div>
 
-  
-
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
   -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> 
   <script src="lib/angular/angular.js"></script>
   <script src="js/app.js"></script>
   <script src="js/services.js"></script>
