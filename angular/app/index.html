@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>My AngularJS App</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/app.css"/>
 </head>
 <body ng-controller="ContactListCtrl">
@@ -11,14 +12,23 @@
 		  Groups
 	</div>
 	<div id="contacts">
-		<div class="contact-item" ng-repeat="contact in contacts | orderBy:orderProp" ng-class="{selected: contact.id==selContact.id}">
-			<a href="#/contact/{{contact.id}}" ng-click='getContact(contact)'>
+		<a class="btn btn-mini" ng-click="addContact()">Add</a>
+		<div class="contact-item" ng-repeat="contact in contacts | orderBy:orderProp" ng-class="{selected: contact.id==selContact.id}" ng-click="getContact(contact)">
+			<a href="#/contact/{{contact.id}}" style="display:block;">
 				{{contact.first_name}} {{contact.last_name}}
 			</a>
 		</div>
 	</div>
-	<div id="contact">
-		{{selContact.name}}
+	<div id="contact" ng-switch on="editMode">
+		<div ng-switch-when="true">
+			<a href="" class="btn btn-mini" ng-click="editContactDone()">Done</a>
+			<input ng-model="selContact.first_name" value="{{selContact.first_name}}"/>
+			<input ng-model="selContact.last_name" value="{{selContact.last_name}}"/>
+		</div>
+		<div ng-switch-default>
+			<a class="btn btn-mini" ng-click="editContact()">Edit</a>
+			<h3>{{selContact.first_name}} {{selContact.last_name}}</h3>
+		</div>
 	</div>
 
   

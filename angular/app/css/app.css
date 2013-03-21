@@ -30,5 +30,7 @@ body{
 	right:0px;
 }
 
-.contact-item{border-bottom:1px solid #ccc;padding:2px;}
+.contact-item{border-bottom:1px solid #ccc;}
+.contact-item a{padding:2px;}
+.contact-item a:hover{text-decoration: none;}
 .contact-item.selected{font-weight:bold;box-shadow:inset 1px 0px 5px 0px;background-color:#eee;}

@@ -10,7 +10,26 @@ function ContactListCtrl($scope, $http) {
   $scope.getContact = function(contact){
 	  $scope.selContact = contact;
   }
-  $scope.orderProp = 'name';
+  
+  $scope.name = function(contact){
+	  if (contact.first_name == '' && contact.last_name)
+		  return 'No Name';
+	  return contact.first_name + ' ' + contact.last_name;
+  } 
+  $scope.editMode = false;
+  $scope.addContact = function(){
+	  $scope.selContact = newContact;
+	  $scope.contacts.push(newContact)
+	  $scope.editMode = true;
+  }
+  $scope.editContact = function(){
+	  $scope.editMode = true;
+  }
+  $scope.editContactDone = function(){
+	  $scope.editMode = false;
+  }
+  $scope.orderProp = 'first_name';
+  
 }
 
 

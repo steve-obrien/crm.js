@@ -2,10 +2,12 @@
 
 
 // Declare app level module which depends on filters, and services
-angular.module('crm', ['crm.filters', 'crm.services', 'crm.directives']).
-  config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/view1', {templateUrl: 'partials/partial1.html', controller: MyCtrl1});
+var crm = angular.module('crm', ['crm.filters', 'crm.services', 'crm.directives']);
+
+
+crm.config(['$routeProvider', function($routeProvider) {
+    $routeProvider.when('/contact/:id', {action: '', controller: MyCtrl1});
     $routeProvider.when('/view2', {templateUrl: 'partials/partial2.html', controller: MyCtrl2});
     $routeProvider.otherwise({redirectTo: '/view1'});
-  }]);
+}]);
  
