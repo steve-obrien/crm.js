@@ -7,14 +7,15 @@ body{
 }
 #groups{
 	position:absolute;
-	top:40px;
+	top:0px;
 	bottom:0px;
 	width:100px;
+	background-color:#333;
 }
 #contacts{
 	position:absolute;
 	width:200px;
-	top:40px;
+	top:0px;
 	bottom:0px;
 	left:100px;
 	overflow-y: auto;
@@ -23,14 +24,15 @@ body{
 }
 #contact{
 	position:absolute;
+	padding:0px 10px;
 	width:auto;
-	top:40px;
+	top:0px;
 	bottom:0px;
 	left:300px;
 	right:0px;
 }
 
 .contact-item{border-bottom:1px solid #ccc;}
-.contact-item a{padding:2px;}
+.contact-item a{padding:3px;}
 .contact-item a:hover{text-decoration: none;}
 .contact-item.selected{font-weight:bold;box-shadow:inset 1px 0px 5px 0px;background-color:#eee;}

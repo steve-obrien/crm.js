@@ -1,48 +1,59 @@
 <!doctype html>
 <html lang="en" ng-app="crm">
-<head>
-  <meta charset="utf-8">
-  <title>My AngularJS App</title>
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/app.css"/>
-</head>
-<body ng-controller="ContactListCtrl">
-	<div>Angular seed app: v<span app-version></span></div>
-	<div id="groups">
-		  Groups
-	</div>
-	<div id="contacts">
-		<a class="btn btn-mini" ng-click="addContact()">Add</a>
-		Total ({{contacts.length}})
-		<div class="contact-item" ng-repeat="contact in contacts | orderBy:orderProp" ng-class="{selected: contact.id==selContact.id}" ng-click="getContact(contact)">
-			<a href="#/contact/{{contact.id}}" style="display:block;">
-				{{contact.first_name}} {{contact.last_name}}
-			</a>
+	<head>
+		<meta charset="utf-8">
+		<title>My AngularJS App</title>
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<link rel="stylesheet" href="css/app.css"/>
+	</head>
+	<body ng-controller="ContactListCtrl">
+		<div id="groups">
+			Groups
 		</div>
-	</div>
-	<div id="contact" ng-switch on="editMode">
-		<div ng-switch-when="true" >
-			<a href="" class="btn btn-mini" ng-click="editContactDone()">Done</a>
-			<div>
-				<input type="text" ng-model="selContact.first_name" value="{{selContact.first_name}}"/>
-				<input type="text" ng-model="selContact.last_name" value="{{selContact.last_name}}"/>
+		<div id="contacts">
+			<a class="btn btn-mini" ng-click="addContact()">Add</a>
+			Total ({{contacts.length}})
+			<div class="contact-item" ng-repeat="contact in contacts | orderBy:orderProp" ng-class="{selected: contact.id==selContact.id}" ng-click="getContact(contact)">
+				<a href="#/contact/{{contact.id}}" style="display:block;">
+					<img ng-src="http://placehold.it/24x24" /> {{contact.first_name}} {{contact.last_name}}
+				</a>
 			</div>
 		</div>
-		<div ng-switch-default>
-			<a class="btn btn-mini" ng-click="editContact()">Edit</a>
-			<h3>{{selContact.first_name}} {{selContact.last_name}}</h3>
+		<div id="contact" ng-switch on="editMode">
+			<div ng-switch-when="true" >
+				<a href="" class="btn btn-mini" ng-click="editContactDone()">Done</a>
+				<div class="media">
+					<a class="pull-left" href="#">
+						<img class="media-object" ng-src="http://placehold.it/64x64">
+					</a>
+					<div class="media-body">
+						<input type="text" ng-model="selContact.first_name" value="{{selContact.first_name}}"/>
+						<input type="text" ng-model="selContact.last_name" value="{{selContact.last_name}}"/>
+					</div>
+				</div>
+			</div>
+			<div ng-switch-default>
+				<a class="btn btn-mini" ng-click="editContact()">Edit</a>
+				<div class="media">
+					<a class="pull-left" href="#">
+						<img class="media-object" ng-src="http://placehold.it/64x64">
+					</a>
+					<div class="media-body">
+						<h4 class="media-heading">{{selContact.first_name}} {{selContact.last_name}}</h4>
+					</div>
+				</div>
+			</div>
 		</div>
-	</div>
 
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
-  -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> 
-  <script src="lib/angular/angular.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/services.js"></script>
-  <script src="js/controllers.js"></script>
-  <script src="js/filters.js"></script>
-  <script src="js/directives.js"></script>
-</body>
+		<!-- In production use:
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+		-->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> 
+		<script src="lib/angular/angular.js"></script>
+		<script src="js/app.js"></script>
+		<script src="js/services.js"></script>
+		<script src="js/controllers.js"></script>
+		<script src="js/filters.js"></script>
+		<script src="js/directives.js"></script>
+	</body>
 </html>
